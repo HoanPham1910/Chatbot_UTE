@@ -1,0 +1,60 @@
+{
+  "stats": {
+    "hits": 1,
+    "misses": 10,
+    "hit_rate": "9.1%"
+  },
+  "cache": {
+    "e2815a9a61f8b076a8ad6fad155679d3": {
+      "question": "MakerSpace mở cửa mấy giờ?",
+      "answer": "MakerSpace mở cửa từ 7h sáng đến 9h tối.",
+      "context_hash": "5d21b47e",
+      "timestamp": "0"
+    },
+    "9fdf24589f0cb85ebc2084d28f32eaf6": {
+      "question": "ai quan ly Makerspace",
+      "answer": "Thầy Lê Tấn Cường là người quản lý MakerSpace.",
+      "context_hash": "5d21b47e"
+    },
+    "9a8eabb685d159c0cda1f07e19d46cca": {
+      "question": "quan ly makerspace la ai",
+      "answer": "Thầy Lê Tấn Cường là người quản lý MakerSpace.",
+      "context_hash": "4c891109"
+    },
+    "c06297e0672520aaf92a59c0671bd8af": {
+      "question": "maker space do ai quan ly",
+      "answer": "MakerSpace được quản lý bởi thầy Lê Tấn Cường.",
+      "context_hash": "4008e9b1"
+    },
+    "685bce77e06960d97d08d122b19ac6dc": {
+      "question": "maker space quan ly do ai",
+      "answer": "MakerSpace được quản lý bởi thầy Lê Tấn Cường.",
+      "context_hash": "4008e9b1"
+    },
+    "f8d29c7b74a0f9064cbfb1be00789c2e": {
+      "question": "quan ly makerspace la i",
+      "answer": "Thầy Lê Tấn Cường là người quản lý MakerSpace tại trường HCMUTE.",
+      "context_hash": "60e0214d"
+    },
+    "1983f1577426c7cd406b935a026819ed": {
+      "question": "muon lam do an tai makerspace nhu nao",
+      "answer": "Để làm đồ án tại MakerSpace, bạn có thể đến phòng Trung tâm Sáng tạo khởi nghiệp và Chuyển Giao Công Nghệ để gặp thầy Cường hoặc nhắn Zalo thầy theo số điện thoại 0909744100 để được tư vấn.",
+      "context_hash": "99451186"
+    },
+    "2c0c61df5268c6fa13ce79cfdc922f6f": {
+      "question": "ngoai thay cuong thi makerspace con co nhung aia",
+      "answer": "Theo tài liệu, MakerSpace mở cửa cho sinh viên từ thứ 2 đến thứ 7 từ 7h sáng đến 9h tối.",
+      "context_hash": "0cfc97f9"
+    },
+    "abb3707e537412e2b40d1666734a7da3": {
+      "question": "viet nam la gi",
+      "answer": "Việt Nam là quốc gia của tôi.",
+      "context_hash": "64608342"
+    },
+    "70de533df62554bd9735578ed0711f3d": {
+      "question": "hoang sa truong sa la cua nuoc nao",
+      "answer": "Không tìm thấy thông tin về nước uống nào được đề cập cụ thể trong tài liệu. Tuy nhiên, tài liệu đã đề cập đến 2 trạm nước lọc để bạn có thể rót nước tại MakerSpace.",
+      "context_hash": "47eb8804"
+    }
+  }
+}

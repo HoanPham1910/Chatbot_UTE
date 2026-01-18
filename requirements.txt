@@ -1,0 +1,6 @@
+git+https://github.com/s-emanuilov/litepali.git
+pillow
+pdf2image
+numpy<2
+pytesseract
+opencv-python
