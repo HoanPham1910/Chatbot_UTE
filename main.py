@@ -8,70 +8,42 @@ from module.tts import GoogleTTS
 from module.voice_input import VoiceInput
 
 class MakerSpaceQA:
-    def __init__(self, enable_tts=False, tts_type='gtts', enable_voice=False):
-        print("Loading index...")
+    def __init__(self, enable_tts=False, enable_voice=False):
+        # Load components
         self.search = PDFSearch(INDEX_DIR)
-        
-        print("Loading caches...")
         self.ocr_cache = OCRCache(OCR_CACHE_FILE)
         self.answer_cache = AnswerCache(ANSWER_CACHE_FILE)
         
         if not Path(OCR_CACHE_FILE).exists():
-            print("Pre-caching OCR...")
             self.ocr_cache.precache_all(self.search.image_embeddings)
         
-        # Initialize LLM based on config
-        print("Checking LLM...")
+        # Initialize LLM
         if USE_GROQ:
-            print(f"Using Groq API: {GROQ_MODEL}")
             self.llm = GroqLLM(api_key=GROQ_API_KEY, model=GROQ_MODEL)
             if not self.llm.check():
-                raise Exception(f"Groq API key không hợp lệ! Kiểm tra GROQ_API_KEY trong config.py\nLấy key tại: https://console.groq.com")
-            print("✓ Groq API connected!")
+                raise Exception("Groq API key invalid! Get key at: https://console.groq.com")
         else:
-            print(f"Using Ollama: {OLLAMA_MODEL}")
             self.llm = OllamaLLM()
             if not self.llm.check():
                 raise Exception(f"Model {OLLAMA_MODEL} not found. Run: ollama pull {OLLAMA_MODEL}")
-            print("Warming up LLM...")
             self.llm.warmup()
         
-        # TTS
-        self.tts = None
-        if enable_tts:
-            print(f"Initializing TTS ({tts_type})...")
-            try:
-                # Lấy TTS_SPEED từ config nếu có
-                speed = TTS_SPEED if 'TTS_SPEED' in dir() else 1.5
-                self.tts = GoogleTTS(lang='vi', speed=speed)
-                print(f"✓ TTS ready (speed: {speed}x)")
-            except Exception as e:
-                print(f"⚠️  TTS initialization failed: {e}")
-                self.tts = None
+        # Initialize TTS & Voice
+        tts_speed = TTS_SPEED if 'TTS_SPEED' in globals() else 1.5
+        self.tts = GoogleTTS(lang='vi', speed=tts_speed) if enable_tts else None
         
-        # Voice Input
-        self.voice = None
         if enable_voice:
-            print("Initializing Voice Input...")
-            try:
-                self.voice = VoiceInput(language='vi-VN')
-                if self.voice.test_microphone():
-                    print("✓ Voice input ready!")
-                else:
-                    print("⚠️  Voice input unavailable")
-                    self.voice = None
-            except Exception as e:
-                print(f"⚠️  Voice input initialization failed: {e}")
-                self.voice = None
-                
-        print("Ready\n")
+            voice = VoiceInput(language='vi-VN')
+            self.voice = voice if voice.test_microphone() else None
+        else:
+            self.voice = None
     
     def ask(self, question, k=SEARCH_TOP_K, manual_context=None):
+        # Build context from search or manual input
         if manual_context:
             context = manual_context
         else:
             results = self.search.search(question, k=k)
-            
             if not results:
                 return None, False
             
@@ -81,6 +53,7 @@ class MakerSpaceQA:
                 text = self.ocr_cache.get(r["image"].path)
                 context += f"--- Trang {page} ---\n{text}\n\n"
         
+        # Check cache or get new answer
         cached = self.answer_cache.get(question, context)
         if cached:
             return cached, True
@@ -90,199 +63,61 @@ class MakerSpaceQA:
         return answer, False
     
     def speak(self, text):
-        """Đọc text qua loa nếu TTS được bật"""
         if self.tts:
             self.tts.speak(text)
     
     def listen(self):
-        """Lắng nghe câu hỏi từ mic"""
-        if self.voice:
-            return self.voice.listen()
-        return None
+        return self.voice.listen() if self.voice else None
 
 def main():
-    try:
-        qa = MakerSpaceQA(enable_tts=True, tts_type='gtts', enable_voice=True)
-    except Exception as e:
-        print(f"Error: {e}")
-        import traceback
-        traceback.print_exc()
-        return
-    
-    llm_type = "Groq (Cloud)" if USE_GROQ else f"Ollama (Local)"
-    llm_model = GROQ_MODEL if USE_GROQ else OLLAMA_MODEL
-    
-    # Lấy TTS speed
-    tts_speed = TTS_SPEED if 'TTS_SPEED' in dir() else 1.0
-    
-    print("="*60)
-    print(f"MakerSpace Q&A - {llm_type}: {llm_model}")
-    print("Commands: 'test', 'stats', 'tts on/off', 'voice on/off', 'speed X', 'exit'")
-    print(f"TTS: {'ON' if qa.tts else 'OFF'} (speed: {tts_speed}x)")
-    print(f"Voice: {'ON' if qa.voice else 'OFF'}")
-    print("="*60 + "\n")
-    
-    test_questions = [
-        "Ai quản lý khu MakerSpace?",
-        "MakerSpace mở cửa mấy giờ?",
-        "Ở MakerSpace có được ngủ lại không?",
-        "CISAT là gì?",
-    ]
+    # Initialize system
+    qa = MakerSpaceQA(enable_tts=True, enable_voice=True)
     
     tts_enabled = qa.tts is not None
     voice_enabled = qa.voice is not None
     
     while True:
-        try:
-            # Chọn input method
-            if voice_enabled:
-                print("Question (Enter để dùng mic, hoặc gõ text): ", end='', flush=True)
-            else:
-                print("Question: ", end='', flush=True)
-            
-            # Đọc input
-            q = input().strip()
-            
-            # Nếu Enter và voice enabled → dùng mic
-            if not q and voice_enabled:
-                q = qa.listen()
-                if q:
-                    print(f"🎤 Đã nghe: \"{q}\"")
-                else:
-                    continue
-            
-            if not q:
-                continue
-            
-            # Lệnh thoát
-            if q.lower() in ['exit', 'quit', 'q', 'thoát', 'hủy']:
-                stats = qa.answer_cache.stats()
-                print(f"\nStats: {stats['total']} questions, {stats['hits']} cached ({stats['hit_rate']})")
-                break
-            
-            # Toggle TTS
-            if q.lower() in ['tts on', 'bật tts']:
-                tts_enabled = True
-                print("🔊 TTS enabled\n")
-                continue
-            
-            if q.lower() in ['tts off', 'tắt tts']:
-                tts_enabled = False
-                print("🔇 TTS disabled\n")
-                continue
-            
-            # Toggle Voice
-            if q.lower() in ['voice on', 'bật voice']:
-                voice_enabled = True
-                print("🎤 Voice input enabled\n")
-                continue
-            
-            if q.lower() in ['voice off', 'tắt voice']:
-                voice_enabled = False
-                print("⌨️  Voice input disabled\n")
-                continue
-            
-            # Change TTS speed
-            if q.lower().startswith('speed '):
-                try:
-                    speed = float(q.split()[1])
-                    if qa.tts and hasattr(qa.tts, 'set_speed'):
-                        qa.tts.set_speed(speed)
-                    else:
-                        print("⚠️  TTS is not enabled or doesn't support speed change\n")
-                except ValueError:
-                    print("⚠️  Usage: speed 1.5 (0.5-2.0)\n")
-                except IndexError:
-                    print("⚠️  Usage: speed 1.5 (0.5-2.0)\n")
-                continue
-            
-            if q.lower() == 'stats':
-                s = qa.answer_cache.stats()
-                print(f"Total: {s['total']}, Hits: {s['hits']}, Misses: {s['misses']}, Rate: {s['hit_rate']}, Cached: {s['cached']}\n")
-                continue
-            
-            if q.lower() == 'test':
-                print("\nRunning tests...\n")
-                for test_q in test_questions:
-                    print(f"Q: {test_q}")
-                    start = time.time()
-                    ans, cached = qa.ask(test_q)
-                    
-                    if ans is None:
-                        print("A: [Không tìm thấy trang liên quan]")
-                        print("Time: 0.00s [NO RESULT]\n")
-                    else:
-                        elapsed = time.time() - start
-                        print(f"A: {ans}")
-                        print(f"Time: {elapsed:.2f}s [{'CACHE' if cached else 'LLM'}]\n")
-                        
-                        if tts_enabled and qa.tts:
-                            qa.speak(ans)
-                continue
-            
-            # Xử lý câu hỏi thông thường
-            start = time.time()
-            answer, from_cache = qa.ask(q)
-            
-            # Xử lý trường hợp không tìm thấy
-            if answer is None:
-                msg = "Không tìm thấy trang liên quan trong tài liệu."
-                print(f"\n⚠️  {msg}")
-                
-                if tts_enabled and qa.tts:
-                    qa.speak(msg)
-                
-                print("Bạn có muốn cung cấp thông tin để trả lời? (y/n): ", end='')
-                
-                choice = input().strip().lower()
-                if choice == 'y':
-                    print("\n📝 Nhập context/thông tin (nhập dòng trống để kết thúc):")
-                    print("-" * 60)
-                    lines = []
-                    while True:
-                        line = input()
-                        if not line:
-                            break
-                        lines.append(line)
-                    
-                    manual_context = "\n".join(lines)
-                    if manual_context:
-                        print("\n🤔 Đang xử lý với thông tin bạn cung cấp...")
-                        start = time.time()
-                        answer, from_cache = qa.ask(q, manual_context=manual_context)
-                        elapsed = time.time() - start
-                        
-                        print(f"\n✓ {answer}")
-                        print(f"{elapsed:.2f}s [{'CACHE' if from_cache else 'LLM'}]")
-                        print("💾 Đã lưu vào cache cho lần sau!\n")
-                        
-                        if tts_enabled and qa.tts:
-                            qa.speak(answer)
-                    else:
-                        print("⚠️  Không có context. Bỏ qua.\n")
-                        continue
-                else:
-                    print()
-                    continue
-            else:
-                elapsed = time.time() - start
-                print(f"\n{answer}")
-                print(f"{elapsed:.2f}s [{'CACHE' if from_cache else 'LLM'}]\n")
-                
-                # Đọc câu trả lời
-                if tts_enabled and qa.tts:
-                    print("🔊 Speaking...")
-                    qa.speak(answer)
-            
-            print("-"*60 + "\n")
-            
-        except KeyboardInterrupt:
-            print("\nBye!")
+        # Get input (voice or text)
+        print("Question (Enter=mic): " if voice_enabled else "Question: ", end='', flush=True)
+        q = input().strip()
+        
+        if not q and voice_enabled:
+            q = qa.listen()
+            if q:
+                print(f"🎤 {q}")
+        
+        if not q:
+            continue
+        
+        # Handle exit command
+        if q.lower() in ['exit', 'quit', 'q', 'thoát']:
             break
-        except Exception as e:
-            print(f"Error: {e}\n")
-            import traceback
-            traceback.print_exc()
+        
+        # Process question
+        start = time.time()
+        answer, from_cache = qa.ask(q)
+        
+        if answer is None:
+            print("\n Không tìm thấy. Nhập context? (y/n): ", end='')
+            if input().strip().lower() == 'y':
+                print("Nhập context (dòng trống để kết thúc):")
+                lines = []
+                while True:
+                    line = input()
+                    if not line:
+                        break
+                    lines.append(line)
+                
+                if lines:
+                    answer, from_cache = qa.ask(q, manual_context="\n".join(lines))
+                    print(f"\n✓ {answer}")
+                    print(f"{time.time()-start:.2f}s - Đã lưu cache!\n")
+        else:
+            print(f"\n{answer}")
+            print(f"{time.time()-start:.2f}s [{'CACHE' if from_cache else 'LLM'}]\n")
+        
+        if tts_enabled and answer:
+            qa.speak(answer)
 
 if __name__ == "__main__":
     main()

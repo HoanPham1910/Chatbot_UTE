@@ -1,8 +1,8 @@
 {
   "stats": {
-    "hits": 16,
-    "misses": 74,
-    "hit_rate": "17.8%"
+    "hits": 18,
+    "misses": 87,
+    "hit_rate": "17.1%"
   },
   "cache": {
     "e2815a9a61f8b076a8ad6fad155679d3": {
@@ -285,6 +285,71 @@
       "question": "nhiệm vụ của csat là",
       "answer": "Nhiệm vụ của CISAT là tìm kiếm và hỗ trợ các bạn trẻ (sinh viên) có tinh thần khởi nghiệp thông qua các cuộc thi về sáng tạo khởi nghiệp, các hội thảo chia sẻ kiến thức và kinh nghiệm về kinh doanh, thị trường.",
       "context_hash": "f4f9ccb5"
+    },
+    "b59e53e55a76d5c7bfed275933723e93": {
+      "question": "Hãy giới thiệu khu makerspace cho bạn coi sim",
+      "answer": "Khu MakerSpace là không gian đa năng tại trường Đại Học Công Nghệ Kỹ Thuật HCMUTE, nơi các bạn sinh viên có thể học nhóm, trao đổi và làm những dự án cho riêng mình. MakerSpace có các khu vực như:\n\n- Trưng bày đồ án sinh viên\n- Khu Workshop (trưng bày sản phẩm của sinh viên)\n- Khu chữa lành (có cây xanh và bàn ghế thư giãn)\n- Nhà vệ sinh\n- Trạm uống nước (có máy lọc nước và máy bán hàng tự động)\n\nMakerSpace mở cửa cho sinh viên từ thứ 2 đến thứ 7 từ 7h sáng đến 9h tối. Nếu bạn muốn làm đồ án tại MakerSpace, bạn có thể đến phòng Trung tâm Sáng tạo khởi nghiệp và Chuyển Giao Công Nghệ để gặp thầy Cường hoặc nhắn zalo thầy theo số điện thoại 0909744100 để được thầy tư vấn.",
+      "context_hash": "e72ad9ce"
+    },
+    "52fbbcba787ef159d8df9c2dec5353dd": {
+      "question": "cách để cho bạn Khôi",
+      "answer": "Để cho bạn Khôi vào MakerSpace, bạn có thể liên hệ với nhân sự quản lý không gian MakerSpace, cụ thể là:\n\n- Thầy Lê Tấn Cường\n- Cô Bùi Thị Thu Ba\n- Thầy Trần Phương Nam\n\nHoặc bạn có thể tham khảo thông tin về cách đăng ký sử dụng thiết bị tại MakerSpace, nhưng thông tin này không được cung cấp trong tài liệu.",
+      "context_hash": "9bc6f339"
+    },
+    "14a40c6622c2ffe8f0436c72a3115c30": {
+      "question": "nói được không",
+      "answer": "Tôi có thể trả lời các câu hỏi sau:\n\n1. MakerSpace mở cửa vào ngày nào?\n- MakerSpace mở cửa cho sinh viên từ thứ 2 đến thứ 7 từ 7h sáng đến 9h tối.\n\n2. Có được ngủ lại ở MakerSpace không?\n- Không được, nếu bạn vẫn còn việc thì hãy về nhà nghỉ ngơi rồi ngày mai lên làm tiếp.\n\n3. Ở đây có nước uống không?\n- Có, ở MakerSpace có 2 máy lọc nước nằm sát tường, đối diện cửa kính ra vào và 2 máy bán hàng tự động được đặt ở trung tâm.\n\n4. Ai quản lý khu MakerSpace?\n- MakerSpace hiện do thầy Lê Tấn Cường quản lý.\n\n5. Mọi người đến MakerSpace để làm gì?\n- Mọi người đến MakerSpace để học nhóm, trao đổi và làm những dự án cho riêng mình.\n\n6. Có quạt đứng ở MakerSpace không?\n- Có, bạn có",
+      "context_hash": "ff62f771"
+    },
+    "2a2821963f7d2709132af01f9f895c7c": {
+      "question": "Ea Ý là chị",
+      "answer": "Xin chào! Tôi là trợ lý hỗ trợ thông tin về MakerSpace tại trường HCMUTE.\n\nĐể trả lời câu hỏi của bạn, tôi cần biết câu hỏi cụ thể của bạn là gì. Vui lòng cho tôi biết câu hỏi của bạn.",
+      "context_hash": "0674efd5"
+    },
+    "b2c9eae464af0257791fc8931b0a142b": {
+      "question": "sinh ở đâu",
+      "answer": "Không tìm thấy thông tin về nơi sinh của thầy Lê Tấn Cường, cô Bùi Thị Thu Ba, thầy Trần Phương Nam trong tài liệu.",
+      "context_hash": "e7cc2fb4"
+    },
+    "7ce4edfaeff3a1640e1d5e0a4b60218a": {
+      "question": "Nhà vệ sinh ở đâu",
+      "answer": "Nhà vệ sinh ở cuối hành lang.",
+      "context_hash": "60e0214d"
+    },
+    "5035e2cbab72973265f6bd54657323d8": {
+      "question": "Alpha",
+      "answer": "Tôi có thể trả lời các câu hỏi của bạn dựa trên thông tin trong tài liệu. Hãy cho tôi biết câu hỏi của bạn là gì!",
+      "context_hash": "4fc35e91"
+    },
+    "39c97f3af327b63ca8b6d5fde4f9fd9e": {
+      "question": "Mickey do ai quản lý",
+      "answer": "Không tìm thấy thông tin về Mickey trong tài liệu.",
+      "context_hash": "058b8cc9"
+    },
+    "81ab1da4c0f2503d8dd0ba67117cc116": {
+      "question": "ở makerspace có gì",
+      "answer": "MakerSpace có các khu vực và phòng ban sau:\n\n- Trưng bày đồ án sinh viên\n- Khu Workshop\n- Khu chữa lành\n- Nhà vệ sinh\n- Trạm uống nước\n- Phòng CISATT - Trung tâm Sáng tạo khởi nghiệp và Chuyển giao công nghệ\n- Trung tâm hỗ trợ sinh viên làm nghiên cứu khoa học\n- Trung tâm Robot thông minh\n- Phòng Trung tâm Chuyển giao công nghệ\n- Hệ thống thiết bị tự động hóa\n- Các thiết bị như máy cắt lazer, máy khoan, máy in 3D, ...",
+      "context_hash": "7edf6941"
+    },
+    "01247bd529234b0096914ba4c3cdd0ac": {
+      "question": "& c:/Users/ThinkPad/Chatbot_ute/.venv/Scripts/python.exe c:/Users/ThinkPad/Chatbot_ute/main.py",
+      "answer": "Tôi sẵn sàng giúp bạn!\n\nBạn có câu hỏi nào về MakerSpace tại trường HCMUTE không?",
+      "context_hash": "54ca9e56"
+    },
+    "b2e1fc95c1d4030daf00df6df7f8b08e": {
+      "question": "bạn là",
+      "answer": "Tôi là trợ lý hỗ trợ thông tin về MakerSpace tại trường Đại Học Công Nghệ Kỹ Thuật.",
+      "context_hash": "058b8cc9"
+    },
+    "0439ae9978925d96295027bff609c6bb": {
+      "question": "bạn tôi có đẹp trai không",
+      "answer": "À, bạn tôi đẹp trai không? Haha, mình không biết được vẻ đẹp của bạn ấy, nhưng mình biết rằng bạn ấy là một người rất thông minh và sáng tạo, đúng không?",
+      "context_hash": "60e0214d"
+    },
+    "507e14ef3f4a8845a8b9d01dc29a671b": {
+      "question": "bài nghe kể một câu chuyện được không",
+      "answer": "À, bạn muốn biết có thể nghe được một câu chuyện ở MakerSpace được không? \n\nXin lỗi, mình chưa có thông tin về việc có thể nghe được một câu chuyện ở MakerSpace. Nhưng mình có thể giúp bạn tìm hiểu thêm về các hoạt động và dự án tại MakerSpace nếu bạn muốn!",
+      "context_hash": "02baa8c7"
     }
   }
 }
