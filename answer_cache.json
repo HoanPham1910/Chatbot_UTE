@@ -1,8 +1,8 @@
 {
   "stats": {
-    "hits": 12,
-    "misses": 45,
-    "hit_rate": "21.1%"
+    "hits": 16,
+    "misses": 74,
+    "hit_rate": "17.8%"
   },
   "cache": {
     "e2815a9a61f8b076a8ad6fad155679d3": {
@@ -160,6 +160,131 @@
       "question": "Messi",
       "answer": "Tôi không tìm thấy thông tin về Messi trong tài liệu.",
       "context_hash": "c9fe997d"
+    },
+    "9300765820421963f404d8a81505820d": {
+      "question": "có những thiết bị gì trong khu makerspace",
+      "answer": "Không tìm thấy thông tin trong tài liệu về thiết bị cụ thể nào được mô tả trong các trang 4 và 3 của tài liệu.",
+      "context_hash": "9f1649dc"
+    },
+    "167cec9e3c4c304a74caab16670340ef": {
+      "question": "ai quản lý khu makerspace",
+      "answer": "Không tìm thấy thông tin về người quản lý khu MakerSpace trong tài liệu.",
+      "context_hash": "b4a7ae16"
+    },
+    "34778ecf6b7292acdf992426fc759181": {
+      "question": "Makerspace do ai quản lý",
+      "answer": "MakerSpace hiện do thầy Lê Tấn Cường quản lý.",
+      "context_hash": "4008e9b1"
+    },
+    "e8e3a901b5017aab26e14bb3d001aea6": {
+      "question": "cô Thu Ba là ai",
+      "answer": "Cô Bùi Thị Thu Ba là nhân sự quản lý không gian MakerSpace.",
+      "context_hash": "6239180d"
+    },
+    "cd53070f66fe62f9a7fc605168d3515b": {
+      "question": "thầy Nam là ai",
+      "answer": "Thầy Trần Phương Nam là một trong những người quản lý không gian MakerSpace.",
+      "context_hash": "6239180d"
+    },
+    "20214dca9b1a3a33ee02f0308b6b6f09": {
+      "question": "Khôi có đẹp trai không",
+      "answer": "Không tìm thấy thông tin trong tài liệu.",
+      "context_hash": "bbdfe0b6"
+    },
+    "f0bbfbf3b966a718fff3d70bb57ad67c": {
+      "question": "Muốn làm đồ án ở Maker Space",
+      "answer": "Để làm đồ án tại MakerSpace, bạn có thể đến phòng Trung tâm Sáng tạo khởi nghiệp và Chuyển Giao Công Nghệ để gặp thầy Cường hoặc nhắn Zalo thầy theo số điện thoại 0909744100 để được thầy tư vấn.",
+      "context_hash": "17cdbf4c"
+    },
+    "af2ec0d34b5a0b3db072ceb1d09f3895": {
+      "question": "Nhà vệ sinh ở đâu vậy bạn",
+      "answer": "Nhà vệ sinh ở cuối hành lang, bạn cứ đi thẳng sẽ thấy bảng chỉ dẫn vào nhà vệ sinh.",
+      "context_hash": "60e0214d"
+    },
+    "b7e6c495451da9ef76ca86c93750b9ad": {
+      "question": "tôi có đẹp trai không",
+      "answer": "Không tìm thấy thông tin trong tài liệu.",
+      "context_hash": "7de9137d"
+    },
+    "0765b88cf175268e2bce6eef7a998754": {
+      "question": "makerspace có mấy vòng",
+      "answer": "Không tìm thấy thông tin về số vòng của MakerSpace trong tài liệu.",
+      "context_hash": "d48e24e0"
+    },
+    "cc363cf262d47584f6feee3715ab988f": {
+      "question": "market Space có mấy phòng",
+      "answer": "MakerSpace có 5 khu vực chính:\n\n1. Trưng bày đồ án sinh viên\n2. Khu Workshop\n3. Khu chữa lành\n4. Nhà vệ sinh\n5. Trạm uống nước",
+      "context_hash": "6dae264c"
+    },
+    "87c57705a2cf83afd73c53ba027a4186": {
+      "question": "cách sử dụng quạt thông gió",
+      "answer": "Để sử dụng quạt thông gió, bạn có thể liên hệ văn phòng CISATT để bật quạt thông gió.",
+      "context_hash": "3f9c5e26"
+    },
+    "512cccf73de05e574d723e525623335b": {
+      "question": "cách sử dụng đèn",
+      "answer": "Để sử dụng đèn tại MakerSpace, bạn có thể điều khiển đèn bằng cách chạm trực tiếp lên TV điều khiển đối diện cửa ra vào ở MakerSpace.",
+      "context_hash": "0674efd5"
+    },
+    "b652747d44075574d3f8b2cbf08cd31c": {
+      "question": "giới thiệu phòng C Sharp",
+      "answer": "Không tìm thấy thông tin về phòng C Sharp trong tài liệu.",
+      "context_hash": "481f11ca"
+    },
+    "11b1986127df585d9ccfa09eeb4b01a3": {
+      "question": "giới thiệu Phòng csat",
+      "answer": "Phòng CISAT (Trung tâm Sáng tạo khởi nghiệp và Chuyển giao công nghệ) là một trong những phòng ban ở không gian MakerSpace. Đây là trung tâm hỗ trợ các hoạt động khởi nghiệp của trường đại học sư phạm kỹ thuật TP.HCM, được thành lập vào năm 2015. Mục tiêu của CISAT là trở thành trung tâm hàng đầu Việt Nam về đào tạo và cố vấn cho sinh viên và các bạn trẻ có khát vọng khởi nghiệp.",
+      "context_hash": "7503f139"
+    },
+    "b24f65ff89136ec8dcdd381e96fd0aa5": {
+      "question": "Chừng nào là trường gì",
+      "answer": "Trường Đại Học Công Nghệ Kỹ Thuật.",
+      "context_hash": "cbcc70af"
+    },
+    "5179e187e749c15effdf2644a0a0a18b": {
+      "question": "viết tắt của trường này",
+      "answer": "Trường này được viết tắt là HCMUTE.",
+      "context_hash": "cbcc70af"
+    },
+    "eb2169da657a6e4a17f0606525827039": {
+      "question": "Ở đây có nước uống không",
+      "answer": "Có, ở MakerSpace có nước uống. Bạn có thể rót nước từ 2 trạm nước lọc hoặc mua nước từ máy bán hàng tự động.",
+      "context_hash": "60e0214d"
+    },
+    "3332ba751e7cd5acb3771aa4dfe8589d": {
+      "question": "các thành tích của Xisat",
+      "answer": "Các thành tích của CISAT bao gồm:\n\n- Tổ chức thành công 7 cuộc thi về sáng tạo khởi nghiệp tại trường HCMUTE\n- Quán quân vô địch cuộc thi khởi nghiệp quốc gia SV-Startup 2020 và nhiều năm đạt giải 2 & 3\n- Đạt nhiều giải thưởng tại các cuộc thi khác bên ngoài trường như VSIS, VSIC, MEP, Startup Wheel...",
+      "context_hash": "eb8e9a93"
+    },
+    "99af047cdd5fb1ce88a2e8925b477196": {
+      "question": "các hoạt động ở Asean",
+      "answer": "Không tìm thấy thông tin về các hoạt động ở Asean tại MakerSpace trong tài liệu.",
+      "context_hash": "1222f50a"
+    },
+    "e1d71a3258c23f7bd27260ba0a1fffb6": {
+      "question": "các hoạt động C",
+      "answer": "Dưới đây là các hoạt động nổi bật được diễn ra tại MakerSpace:\n\n1. Cuộc thi robot dò line cho sinh viên kỹ thuật\n2. Các nhóm nghiên cứu trọng điểm tại MakerSpace\n3. Chatbot AI cùng với xe tự hành để hướng dẫn khách tham quan và các bạn sinh viên\n4. Robot tiếp tân\n5. Drone nông nghiệp",
+      "context_hash": "99451186"
+    },
+    "805c3b9aced61c81f1a4ac8bc624a2fa": {
+      "question": "giới thiệu về marketspace",
+      "answer": "MakerSpace là không gian đa năng, còn được gọi là Không gian đa năng, nằm trong khuôn viên trường Đại Học Công Nghệ Kỹ Thuật (HCMUTE). MakerSpace được thành lập để hỗ trợ các hoạt động khởi nghiệp của trường đại học và cung cấp không gian cho sinh viên học nhóm, trao đổi và làm dự án.\n\nMakerSpace nằm ở đối diện tòa nhà Việt Đức, gần bãi xe khu A, và mở cửa cho sinh viên từ thứ 2 đến thứ 7 từ 7h sáng đến 9h tối. MakerSpace do thầy Lê Tấn Cường quản lý và có các phòng ban như Trung tâm Sáng tạo khởi nghiệp và Chuyển giao công nghệ (CISAT), nơi hỗ trợ các hoạt động khởi nghiệp của trường đại học.\n\nMakerSpace cung cấp các tiện ích như máy bán hàng tự động, 2 trạm nước lọc, và có nhà vệ sinh nằm ở cuối hành lang. Tuy nhiên, không được",
+      "context_hash": "06d6c35b"
+    },
+    "0d5ea054417d0619c6ab67472c4664ea": {
+      "question": "Mickey",
+      "answer": "Tôi không tìm thấy thông tin về \"Mickey\" trong tài liệu.",
+      "context_hash": "b3eb5b39"
+    },
+    "0e8a87b497d8bbcab0c8062ab4699560": {
+      "question": "kỳ nằm ở đâu vậy",
+      "answer": "MakerSpace nằm ở đối diện tòa nhà Việt Đức, gần bãi xe khu A.",
+      "context_hash": "0269ca94"
+    },
+    "2484c0163a8005b173c99c0356d8e96e": {
+      "question": "nhiệm vụ của csat là",
+      "answer": "Nhiệm vụ của CISAT là tìm kiếm và hỗ trợ các bạn trẻ (sinh viên) có tinh thần khởi nghiệp thông qua các cuộc thi về sáng tạo khởi nghiệp, các hội thảo chia sẻ kiến thức và kinh nghiệm về kinh doanh, thị trường.",
+      "context_hash": "f4f9ccb5"
     }
   }
 }

@@ -1,5 +1,5 @@
 import requests
-from config import OLLAMA_URL, OLLAMA_MODEL, OLLAMA_TIMEOUT, LLM_TEMPERATURE, LLM_MAX_TOKENS
+from module.config import OLLAMA_URL, OLLAMA_MODEL, OLLAMA_TIMEOUT, LLM_TEMPERATURE, LLM_MAX_TOKENS
 
 class OllamaLLM:
     """Local Ollama LLM"""

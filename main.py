@@ -1,13 +1,14 @@
 import time
 from pathlib import Path
-from config import *
-from cache import OCRCache, AnswerCache
-from search import PDFSearch
-from llm import OllamaLLM, GroqLLM
-from tts import GoogleTTS
+from module.config import *
+from module.cache import OCRCache, AnswerCache
+from module.search import PDFSearch
+from module.llm import OllamaLLM, GroqLLM
+from module.tts import GoogleTTS
+from module.voice_input import VoiceInput
 
 class MakerSpaceQA:
-    def __init__(self, enable_tts=False, tts_type='gtts'):
+    def __init__(self, enable_tts=False, tts_type='gtts', enable_voice=False):
         print("Loading index...")
         self.search = PDFSearch(INDEX_DIR)
         
@@ -39,7 +40,29 @@ class MakerSpaceQA:
         self.tts = None
         if enable_tts:
             print(f"Initializing TTS ({tts_type})...")
-            self.tts = GoogleTTS(lang='vi')
+            try:
+                # Lấy TTS_SPEED từ config nếu có
+                speed = TTS_SPEED if 'TTS_SPEED' in dir() else 1.5
+                self.tts = GoogleTTS(lang='vi', speed=speed)
+                print(f"✓ TTS ready (speed: {speed}x)")
+            except Exception as e:
+                print(f"⚠️  TTS initialization failed: {e}")
+                self.tts = None
+        
+        # Voice Input
+        self.voice = None
+        if enable_voice:
+            print("Initializing Voice Input...")
+            try:
+                self.voice = VoiceInput(language='vi-VN')
+                if self.voice.test_microphone():
+                    print("✓ Voice input ready!")
+                else:
+                    print("⚠️  Voice input unavailable")
+                    self.voice = None
+            except Exception as e:
+                print(f"⚠️  Voice input initialization failed: {e}")
+                self.voice = None
                 
         print("Ready\n")
     
@@ -70,22 +93,33 @@ class MakerSpaceQA:
         """Đọc text qua loa nếu TTS được bật"""
         if self.tts:
             self.tts.speak(text)
+    
+    def listen(self):
+        """Lắng nghe câu hỏi từ mic"""
+        if self.voice:
+            return self.voice.listen()
+        return None
 
 def main():
     try:
-        # Bật TTS: enable_tts=True
-        qa = MakerSpaceQA(enable_tts=True, tts_type='gtts')
+        qa = MakerSpaceQA(enable_tts=True, tts_type='gtts', enable_voice=True)
     except Exception as e:
         print(f"Error: {e}")
+        import traceback
+        traceback.print_exc()
         return
     
     llm_type = "Groq (Cloud)" if USE_GROQ else f"Ollama (Local)"
     llm_model = GROQ_MODEL if USE_GROQ else OLLAMA_MODEL
     
+    # Lấy TTS speed
+    tts_speed = TTS_SPEED if 'TTS_SPEED' in dir() else 1.0
+    
     print("="*60)
     print(f"MakerSpace Q&A - {llm_type}: {llm_model}")
-    print("Commands: 'test', 'stats', 'tts on/off', 'exit'")
-    print(f"TTS: {'ON' if qa.tts else 'OFF'}")
+    print("Commands: 'test', 'stats', 'tts on/off', 'voice on/off', 'speed X', 'exit'")
+    print(f"TTS: {'ON' if qa.tts else 'OFF'} (speed: {tts_speed}x)")
+    print(f"Voice: {'ON' if qa.voice else 'OFF'}")
     print("="*60 + "\n")
     
     test_questions = [
@@ -96,27 +130,70 @@ def main():
     ]
     
     tts_enabled = qa.tts is not None
+    voice_enabled = qa.voice is not None
     
     while True:
         try:
-            q = input("Question: ").strip()
+            # Chọn input method
+            if voice_enabled:
+                print("Question (Enter để dùng mic, hoặc gõ text): ", end='', flush=True)
+            else:
+                print("Question: ", end='', flush=True)
+            
+            # Đọc input
+            q = input().strip()
+            
+            # Nếu Enter và voice enabled → dùng mic
+            if not q and voice_enabled:
+                q = qa.listen()
+                if q:
+                    print(f"🎤 Đã nghe: \"{q}\"")
+                else:
+                    continue
+            
             if not q:
                 continue
             
-            if q.lower() in ['exit', 'quit', 'q']:
+            # Lệnh thoát
+            if q.lower() in ['exit', 'quit', 'q', 'thoát', 'hủy']:
                 stats = qa.answer_cache.stats()
                 print(f"\nStats: {stats['total']} questions, {stats['hits']} cached ({stats['hit_rate']})")
                 break
             
             # Toggle TTS
-            if q.lower() == 'tts on':
+            if q.lower() in ['tts on', 'bật tts']:
                 tts_enabled = True
                 print("🔊 TTS enabled\n")
                 continue
             
-            if q.lower() == 'tts off':
+            if q.lower() in ['tts off', 'tắt tts']:
                 tts_enabled = False
                 print("🔇 TTS disabled\n")
+                continue
+            
+            # Toggle Voice
+            if q.lower() in ['voice on', 'bật voice']:
+                voice_enabled = True
+                print("🎤 Voice input enabled\n")
+                continue
+            
+            if q.lower() in ['voice off', 'tắt voice']:
+                voice_enabled = False
+                print("⌨️  Voice input disabled\n")
+                continue
+            
+            # Change TTS speed
+            if q.lower().startswith('speed '):
+                try:
+                    speed = float(q.split()[1])
+                    if qa.tts and hasattr(qa.tts, 'set_speed'):
+                        qa.tts.set_speed(speed)
+                    else:
+                        print("⚠️  TTS is not enabled or doesn't support speed change\n")
+                except ValueError:
+                    print("⚠️  Usage: speed 1.5 (0.5-2.0)\n")
+                except IndexError:
+                    print("⚠️  Usage: speed 1.5 (0.5-2.0)\n")
                 continue
             
             if q.lower() == 'stats':
@@ -204,6 +281,8 @@ def main():
             break
         except Exception as e:
             print(f"Error: {e}\n")
+            import traceback
+            traceback.print_exc()
 
 if __name__ == "__main__":
     main()

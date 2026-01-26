@@ -9,8 +9,8 @@ OLLAMA_URL = "http://localhost:11434/api/generate"
 OLLAMA_TIMEOUT = 60
 
 # === GROQ (Cloud - Ultra Fast) ===
-USE_GROQ = False  # Đổi thành True để dùng Groq
-GROQ_API_KEY = "gsk_your_api_key_here"  # Paste API key từ https://console.groq.com
+USE_GROQ = True  # Đổi thành True để dùng Groq
+GROQ_API_KEY = "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"  # Paste API key từ https://console.groq.com
 GROQ_MODEL = "llama-3.1-8b-instant"  # hoặc "llama-3.3-70b-versatile"
 
 # === FALLBACK ===
@@ -20,3 +20,7 @@ ENABLE_FALLBACK = True  # Tự động chuyển sang Ollama khi Groq hết quota
 SEARCH_TOP_K = 3
 LLM_TEMPERATURE = 0.1
 LLM_MAX_TOKENS = 200
+
+# === VOICE INPUT ===
+ENABLE_VOICE_INPUT = True  # Bật/tắt voice input
+VOICE_LANGUAGE = 'vi-VN'   # Ngôn ngữ nhận dạng
