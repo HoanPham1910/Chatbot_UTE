@@ -1,8 +1,8 @@
 {
   "stats": {
-    "hits": 1,
-    "misses": 10,
-    "hit_rate": "9.1%"
+    "hits": 12,
+    "misses": 45,
+    "hit_rate": "21.1%"
   },
   "cache": {
     "e2815a9a61f8b076a8ad6fad155679d3": {
@@ -41,20 +41,125 @@
       "answer": "Để làm đồ án tại MakerSpace, bạn có thể đến phòng Trung tâm Sáng tạo khởi nghiệp và Chuyển Giao Công Nghệ để gặp thầy Cường hoặc nhắn Zalo thầy theo số điện thoại 0909744100 để được tư vấn.",
       "context_hash": "99451186"
     },
-    "2c0c61df5268c6fa13ce79cfdc922f6f": {
-      "question": "ngoai thay cuong thi makerspace con co nhung aia",
-      "answer": "Theo tài liệu, MakerSpace mở cửa cho sinh viên từ thứ 2 đến thứ 7 từ 7h sáng đến 9h tối.",
+    "4e1c59376849f8049f8aad42619152ec": {
+      "question": "ai quan ly Makerspace",
+      "answer": "Thầy Cường quản lý MakerSpace.",
+      "context_hash": "83b3a357"
+    },
+    "ddd14651addc78bb903241bb0ed6aed1": {
+      "question": "ai quan ly khu makerspace",
+      "answer": "Không tìm thấy thông tin về người quản lý khu MakerSpace trong tài liệu.",
+      "context_hash": "6e7ace61"
+    },
+    "75ebbff61bc91a77f9ea5edfda8523cf": {
+      "question": "quan ly khu makerspace la ai",
+      "answer": "Thầy Lê Tấn Cường là người phụ trách quản lý khu MakerSpace.",
+      "context_hash": "b2224388"
+    },
+    "6802d29324d3ef78af0eb50b0f516f13": {
+      "question": "makerspace mo cua toi may gio vay ban",
+      "answer": "Không tìm thấy thông tin về việc MakerSpace cho phép may gio vay bàn trong tài liệu.",
+      "context_hash": "1c700572"
+    },
+    "1e0ddfdf72f3274e60de57e57e4c1802": {
+      "question": "CISAT là gì?",
+      "answer": "Timeout - thử lại",
+      "context_hash": "eb8e9a93"
+    },
+    "c27f5d449d0f94e79dc0e894b86d6580": {
+      "question": "makerspace co nhung thiet bi gi",
+      "answer": "Theo tài liệu, các thiết bị ở MakerSpace bao gồm:\n\n1. Máy cắt lazer\n2. Máy khoan\n3. Máy in 3D\n4. Đèn chiếu sáng\n5. Quạt hút\n6. Quạt đứng\n7. Camera\n8. Tủ locker",
       "context_hash": "0cfc97f9"
     },
-    "abb3707e537412e2b40d1666734a7da3": {
-      "question": "viet nam la gi",
-      "answer": "Việt Nam là quốc gia của tôi.",
-      "context_hash": "64608342"
+    "ba7fdbae7749359d17effce179608feb": {
+      "question": "co nhung thiet bi gi",
+      "answer": "Danh sách thiết bị ở MakerSpace:\n\n1. Đèn chiếu sáng\n2. Quạt hút\n3. Quạt đứng\n4. Camera\n5. Tủ locker\n6. Máy cắt lazer\n7. Máy khoan\n8. Máy in 3D",
+      "context_hash": "6239180d"
     },
-    "70de533df62554bd9735578ed0711f3d": {
-      "question": "hoang sa truong sa la cua nuoc nao",
-      "answer": "Không tìm thấy thông tin về nước uống nào được đề cập cụ thể trong tài liệu. Tuy nhiên, tài liệu đã đề cập đến 2 trạm nước lọc để bạn có thể rót nước tại MakerSpace.",
+    "79cadf3b816b39d3ad96e60cf185ddfa": {
+      "question": "co nhung thiet bi gi o makerspace",
+      "answer": "Dưới đây là danh sách thiết bị ở MakerSpace:\n\n1. Máy cắt lazer\n2. Máy khoan\n3. Máy in 3D\n4. Đèn chiếu sáng\n5. Quạt hút\n6. Quạt đứng\n7. Camera\n8. Tủ locker",
+      "context_hash": "f9a944ef"
+    },
+    "e313940e695d7816112ea07e11f7611a": {
+      "question": "makerspace do ai quan ly",
+      "answer": "Makerspace tại trường HCMUTE được quản lý bởi thầy Lê Tấn Cường.",
+      "context_hash": "4008e9b1"
+    },
+    "0e3cc262c10b87081dda35cbd9259462": {
+      "question": "makerspace mo cua luc may gio",
+      "answer": "Theo tài liệu, MakerSpace mở cửa vào ngày thứ 2 đến thứ 7 từ 7h sáng đến 9h tối.",
+      "context_hash": "9a5c78eb"
+    },
+    "fa43d64e19b097309f7fce403c79e21d": {
+      "question": "co Thu Ba la ai",
+      "answer": "Cô Bùi Thị Thu Ba là một trong những nhân sự quản lý không gian MakerSpace.",
+      "context_hash": "6239180d"
+    },
+    "78f34c92e95a606eec07d600ea9ebcc6": {
+      "question": "thay Nam La ai",
+      "answer": "Thay Nam La là Thầy Trần Phương Nam.",
+      "context_hash": "37628548"
+    },
+    "154cb3d3d38b2cd69a66c664fb31f567": {
+      "question": "ai quan ly khi Makerspace",
+      "answer": "Thầy Lê Tấn Cường là người quản lý MakerSpace.",
+      "context_hash": "4008e9b1"
+    },
+    "801fa57c141e6c5204f60e55c494b71a": {
+      "question": "thay Nam la ai",
+      "answer": "Thay Nam là Thầy Trần Phương Nam.",
+      "context_hash": "0cfc97f9"
+    },
+    "952021dbf4e46d5caa25ec8e56ba639c": {
+      "question": "thay Cuong la ai",
+      "answer": "Thầy Lê Tấn Cường là người quản lý MakerSpace.",
+      "context_hash": "99451186"
+    },
+    "d46a8c207f0191b374eaf783ca28a57c": {
+      "question": "ai la quan ly cua khu Makerspace",
+      "answer": "Không tìm thấy thông tin cụ thể về người quản lý khu vực MakerSpace trong tài liệu. Tuy nhiên, tài liệu liệt kê một số nhân sự quản lý không gian MakerSpace, bao gồm:\n\n1. Thầy Lê Tấn Cường\n2. Cô Bùi Thị Thu Ba\n3. Thầy Trần Phương Nam\n\nHọ có thể là những người quản lý hoặc phụ trách khu vực MakerSpace, nhưng thông tin cụ thể không được đề cập trong tài liệu.",
+      "context_hash": "54ca9e56"
+    },
+    "0c3bfb9b3000fc5d1f37a8011cd4db1f": {
+      "question": "thay Cuong la quan ly cua khi Makerspace",
+      "answer": "Không tìm thấy thông tin trong tài liệu về việc thay thế thầy Cường làm quản lý của MakerSpace.",
+      "context_hash": "99451186"
+    },
+    "b743775de8ffe5398ec78ad8dfb91fb4": {
+      "question": "The Ronaldo la ai",
+      "answer": "Không tìm thấy thông tin về \"The Ronaldo\" trong tài liệu.",
+      "context_hash": "4c891109"
+    },
+    "f4e0d20b4286b736c543a8fbd1200606": {
+      "question": "Ban hay ke cho toi mot cau chuyen duoc khogn",
+      "answer": "Tôi có thể giới thiệu cho bạn một câu chuyện về MakerSpace.\n\nMakerSpace là không gian sáng tạo và học tập của trường Đại Học Công Nghệ Kỹ Thuật, nơi các sinh viên có thể thực hành và phát triển ý tưởng của mình. Một trong những hoạt động nổi bật tại MakerSpace là cuộc thi robot dò line cho sinh viên kỹ thuật, nơi các nhóm sinh viên có thể thể hiện kỹ năng và sáng tạo của mình.\n\nBạn có muốn biết thêm về MakerSpace không?",
+      "context_hash": "377a0d91"
+    },
+    "137222bab5d38b5fad1867753c6ea41d": {
+      "question": "Toi muon lam do an o Makerspace nhu nao",
+      "answer": "Để làm đồ án tại MakerSpace, bạn có thể đến phòng Trung tâm Sáng tạo khởi nghiệp và Chuyển Giao Công Nghệ để gặp thầy Cường hoặc nhắn zalo thầy theo số điện thoại 0909744100 để được thầy tư vấn.",
+      "context_hash": "ff62f771"
+    },
+    "b786090edbeb3b21ecfd88f411334e13": {
+      "question": "Hoang Sa , Truong Sa la cua nuoc nao",
+      "answer": "Không tìm thấy thông tin trong tài liệu.",
+      "context_hash": "c9fe997d"
+    },
+    "ea970b0b24c06a3d37ac12555698ce3f": {
+      "question": "ban tim hieu giup tui, Hoang sa cua nuoc nao duoc khong ?",
+      "answer": "Tôi có thể giúp bạn!\n\nTheo thông tin trong tài liệu, ở MakerSpace có 2 trạm nước lọc để bạn có thể rót nước.",
       "context_hash": "47eb8804"
+    },
+    "1e13a857d814ef964ebe5ac3ec82005c": {
+      "question": "Which country owns the Paracel Islands?",
+      "answer": "Không tìm thấy thông tin trong tài liệu.",
+      "context_hash": "cee25254"
+    },
+    "2daab0be7a99db5254dc222d3d29281d": {
+      "question": "Messi",
+      "answer": "Tôi không tìm thấy thông tin về Messi trong tài liệu.",
+      "context_hash": "c9fe997d"
     }
   }
 }

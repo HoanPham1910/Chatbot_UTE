@@ -1,0 +1,191 @@
+<svg viewBox="0 0 1200 1600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Title -->
+  <text x="600" y="40" font-size="28" font-weight="bold" text-anchor="middle" fill="#1a1a1a">
+    MakerSpace Q&A Chatbot - Kiến trúc hệ thống
+  </text>
+  
+  <!-- Phase 1: INITIALIZATION -->
+  <rect x="50" y="80" width="1100" height="280" fill="#e3f2fd" stroke="#1976d2" stroke-width="3" rx="10"/>
+  <text x="600" y="110" font-size="20" font-weight="bold" text-anchor="middle" fill="#1976d2">
+    GIAI ĐOẠN 1: KHỞI TẠO HỆ THỐNG
+  </text>
+  
+  <!-- PDF Index -->
+  <rect x="100" y="140" width="200" height="80" fill="#fff" stroke="#333" stroke-width="2" rx="5"/>
+  <text x="200" y="170" font-size="14" font-weight="bold" text-anchor="middle">📁 PDF Index</text>
+  <text x="200" y="195" font-size="12" text-anchor="middle">Load embeddings</text>
+  <text x="200" y="210" font-size="11" fill="#666" text-anchor="middle">(pdf_index/)</text>
+  
+  <!-- OCR Cache -->
+  <rect x="350" y="140" width="200" height="80" fill="#fff" stroke="#333" stroke-width="2" rx="5"/>
+  <text x="450" y="170" font-size="14" font-weight="bold" text-anchor="middle">🖼️ OCR Cache</text>
+  <text x="450" y="195" font-size="12" text-anchor="middle">Text từ images</text>
+  <text x="450" y="210" font-size="11" fill="#666" text-anchor="middle">(ocr_cache.json)</text>
+  
+  <!-- Answer Cache -->
+  <rect x="600" y="140" width="200" height="80" fill="#fff" stroke="#333" stroke-width="2" rx="5"/>
+  <text x="700" y="170" font-size="14" font-weight="bold" text-anchor="middle">💾 Answer Cache</text>
+  <text x="700" y="195" font-size="12" text-anchor="middle">Câu hỏi cũ</text>
+  <text x="700" y="210" font-size="11" fill="#666" text-anchor="middle">(answer_cache.json)</text>
+  
+  <!-- LLM Choice -->
+  <rect x="850" y="140" width="200" height="80" fill="#fff" stroke="#333" stroke-width="2" rx="5"/>
+  <text x="950" y="165" font-size="14" font-weight="bold" text-anchor="middle">🤖 LLM</text>
+  <text x="950" y="185" font-size="11" text-anchor="middle" fill="#2196f3">Groq (Cloud)</text>
+  <text x="950" y="200" font-size="10" fill="#666" text-anchor="middle">hoặc</text>
+  <text x="950" y="215" font-size="11" text-anchor="middle" fill="#ff9800">Ollama (Local)</text>
+  
+  <!-- Init stats -->
+  <text x="100" y="255" font-size="13" fill="#666">✓ Load 3 components</text>
+  <text x="100" y="275" font-size="13" fill="#666">✓ OCR pre-cache nếu chưa có</text>
+  <text x="100" y="295" font-size="13" fill="#666">✓ Warmup LLM</text>
+  <text x="100" y="315" font-size="13" fill="#666">✓ Ready trong ~5-10 giây</text>
+  
+  <text x="600" y="345" font-size="13" font-style="italic" text-anchor="middle" fill="#1976d2">
+    Thời gian: 5-10s (chỉ 1 lần khi khởi động)
+  </text>
+  
+  <!-- Arrow down -->
+  <line x1="600" y1="360" x2="600" y2="400" stroke="#333" stroke-width="3" marker-end="url(#arrowhead)"/>
+  
+  <!-- Phase 2: RUNTIME -->
+  <rect x="50" y="400" width="1100" height="1150" fill="#fff3e0" stroke="#f57c00" stroke-width="3" rx="10"/>
+  <text x="600" y="430" font-size="20" font-weight="bold" text-anchor="middle" fill="#f57c00">
+    GIAI ĐOẠN 2: XỬ LÝ CÂU HỎI (Runtime)
+  </text>
+  
+  <!-- User Input -->
+  <ellipse cx="600" cy="480" rx="120" ry="40" fill="#4caf50" stroke="#2e7d32" stroke-width="2"/>
+  <text x="600" y="485" font-size="16" font-weight="bold" text-anchor="middle" fill="white">👤 User hỏi</text>
+  <text x="600" y="505" font-size="13" text-anchor="middle" fill="white">"MakerSpace mở cửa</text>
+  
+  <line x1="600" y1="520" x2="600" y2="560" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Step 1: Check Answer Cache -->
+  <rect x="450" y="560" width="300" height="80" fill="#fff" stroke="#9c27b0" stroke-width="3" rx="5"/>
+  <text x="600" y="585" font-size="15" font-weight="bold" text-anchor="middle" fill="#9c27b0">
+    BƯỚC 1: Kiểm tra Cache
+  </text>
+  <text x="600" y="605" font-size="12" text-anchor="middle">Hash(question + context)</text>
+  <text x="600" y="625" font-size="12" text-anchor="middle">→ answer_cache.json</text>
+  
+  <!-- Decision: Cached? -->
+  <polygon points="600,660 700,710 600,760 500,710" fill="#ffeb3b" stroke="#f57f17" stroke-width="2"/>
+  <text x="600" y="710" font-size="14" font-weight="bold" text-anchor="middle">Có trong</text>
+  <text x="600" y="728" font-size="14" font-weight="bold" text-anchor="middle">cache?</text>
+  
+  <!-- YES path -->
+  <line x1="700" y1="710" x2="900" y2="710" stroke="#4caf50" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <text x="800" y="700" font-size="13" fill="#4caf50" font-weight="bold">CÓ ✓</text>
+  
+  <rect x="900" y="670" width="220" height="80" fill="#c8e6c9" stroke="#4caf50" stroke-width="2" rx="5"/>
+  <text x="1010" y="695" font-size="14" font-weight="bold" text-anchor="middle">⚡ Trả lời ngay</text>
+  <text x="1010" y="715" font-size="12" text-anchor="middle">Lấy từ cache</text>
+  <text x="1010" y="735" font-size="11" fill="#2e7d32" text-anchor="middle">Thời gian: ~0.001s</text>
+  
+  <line x1="1010" y1="750" x2="1010" y2="1460" stroke="#4caf50" stroke-width="2" stroke-dasharray="5,5"/>
+  
+  <!-- NO path -->
+  <line x1="600" y1="760" x2="600" y2="810" stroke="#ff5722" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <text x="550" y="790" font-size="13" fill="#ff5722" font-weight="bold">KHÔNG ✗</text>
+  
+  <!-- Step 2: Semantic Search -->
+  <rect x="420" y="810" width="360" height="100" fill="#fff" stroke="#2196f3" stroke-width="3" rx="5"/>
+  <text x="600" y="835" font-size="15" font-weight="bold" text-anchor="middle" fill="#2196f3">
+    BƯỚC 2: Tìm kiếm ngữ nghĩa
+  </text>
+  <text x="600" y="860" font-size="12" text-anchor="middle">1. Embed câu hỏi → vector</text>
+  <text x="600" y="878" font-size="12" text-anchor="middle">2. So sánh với PDF embeddings</text>
+  <text x="600" y="896" font-size="12" text-anchor="middle">3. Lấy top-3 trang liên quan nhất</text>
+  
+  <line x1="600" y1="910" x2="600" y2="950" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Results found? -->
+  <polygon points="600,970 700,1020 600,1070 500,1020" fill="#ffeb3b" stroke="#f57f17" stroke-width="2"/>
+  <text x="600" y="1020" font-size="14" font-weight="bold" text-anchor="middle">Tìm thấy</text>
+  <text x="600" y="1038" font-size="14" font-weight="bold" text-anchor="middle">trang?</text>
+  
+  <!-- NO results -->
+  <line x1="500" y1="1020" x2="280" y2="1020" stroke="#ff5722" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <text x="390" y="1010" font-size="13" fill="#ff5722" font-weight="bold">KHÔNG</text>
+  
+  <rect x="80" y="980" width="200" height="80" fill="#ffcdd2" stroke="#f44336" stroke-width="2" rx="5"/>
+  <text x="180" y="1010" font-size="13" font-weight="bold" text-anchor="middle">❌ Không tìm thấy</text>
+  <text x="180" y="1030" font-size="11" text-anchor="middle">Hỏi user nhập</text>
+  <text x="180" y="1048" font-size="11" text-anchor="middle">context thủ công</text>
+  
+  <!-- YES results -->
+  <line x1="600" y1="1070" x2="600" y2="1110" stroke="#4caf50" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <text x="550" y="1095" font-size="13" fill="#4caf50" font-weight="bold">CÓ ✓</text>
+  
+  <!-- Step 3: Get OCR Text -->
+  <rect x="420" y="1110" width="360" height="80" fill="#fff" stroke="#9c27b0" stroke-width="3" rx="5"/>
+  <text x="600" y="1135" font-size="15" font-weight="bold" text-anchor="middle" fill="#9c27b0">
+    BƯỚC 3: Lấy text từ OCR
+  </text>
+  <text x="600" y="1158" font-size="12" text-anchor="middle">Trang 1, 2, 3 → ocr_cache.json</text>
+  <text x="600" y="1178" font-size="12" text-anchor="middle">→ Context text</text>
+  
+  <line x1="600" y1="1190" x2="600" y2="1230" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Step 4: Call LLM -->
+  <rect x="380" y="1230" width="440" height="120" fill="#fff" stroke="#ff9800" stroke-width="3" rx="5"/>
+  <text x="600" y="1255" font-size="15" font-weight="bold" text-anchor="middle" fill="#ff9800">
+    BƯỚC 4: Gọi LLM để trả lời
+  </text>
+  <rect x="420" y="1270" width="160" height="60" fill="#e3f2fd" stroke="#2196f3" stroke-width="2" rx="3"/>
+  <text x="500" y="1290" font-size="12" font-weight="bold" text-anchor="middle" fill="#2196f3">Groq API</text>
+  <text x="500" y="1308" font-size="10" text-anchor="middle">~0.5s</text>
+  <text x="500" y="1322" font-size="10" text-anchor="middle">Cloud</text>
+  
+  <rect x="620" y="1270" width="160" height="60" fill="#fff3e0" stroke="#ff9800" stroke-width="2" rx="3"/>
+  <text x="700" y="1290" font-size="12" font-weight="bold" text-anchor="middle" fill="#ff9800">Ollama</text>
+  <text x="700" y="1308" font-size="10" text-anchor="middle">~1-2s</text>
+  <text x="700" y="1322" font-size="10" text-anchor="middle">Local</text>
+  
+  <line x1="600" y1="1350" x2="600" y2="1390" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Step 5: Save to Cache -->
+  <rect x="420" y="1390" width="360" height="60" fill="#fff" stroke="#4caf50" stroke-width="3" rx="5"/>
+  <text x="600" y="1415" font-size="15" font-weight="bold" text-anchor="middle" fill="#4caf50">
+    BƯỚC 5: Lưu vào Cache
+  </text>
+  <text x="600" y="1435" font-size="12" text-anchor="middle">answer_cache.json (cho lần sau)</text>
+  
+  <line x1="600" y1="1450" x2="600" y2="1480" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="1010" y1="1460" x2="600" y2="1480" stroke="#4caf50" stroke-width="2" stroke-dasharray="5,5"/>
+  
+  <!-- Final Output -->
+  <ellipse cx="600" cy="1510" rx="130" ry="40" fill="#4caf50" stroke="#2e7d32" stroke-width="3"/>
+  <text x="600" y="1510" font-size="16" font-weight="bold" text-anchor="middle" fill="white">✓ Trả lời User</text>
+  <text x="600" y="1530" font-size="12" text-anchor="middle" fill="white">+ TTS đọc (nếu bật)</text>
+  
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#333"/>
+    </marker>
+  </defs>
+  
+  <!-- Performance stats box -->
+  <rect x="820" y="1100" width="330" height="220" fill="#f5f5f5" stroke="#666" stroke-width="2" rx="8" stroke-dasharray="5,5"/>
+  <text x="985" y="1130" font-size="16" font-weight="bold" text-anchor="middle" fill="#333">
+    ⚡ HIỆU NĂNG
+  </text>
+  
+  <text x="840" y="1160" font-size="13" font-weight="bold" fill="#4caf50">Cache Hit:</text>
+  <text x="940" y="1160" font-size="13" fill="#666">~0.001s</text>
+  
+  <text x="840" y="1185" font-size="13" font-weight="bold" fill="#2196f3">Groq (miss):</text>
+  <text x="940" y="1185" font-size="13" fill="#666">~0.5-0.8s</text>
+  
+  <text x="840" y="1210" font-size="13" font-weight="bold" fill="#ff9800">Ollama (miss):</text>
+  <text x="940" y="1210" font-size="13" fill="#666">~1-2s</text>
+  
+  <line x1="840" y1="1225" x2="1130" y2="1225" stroke="#ccc" stroke-width="1"/>
+  
+  <text x="840" y="1250" font-size="12" fill="#666">• Semantic search: ~0.1s</text>
+  <text x="840" y="1270" font-size="12" fill="#666">• OCR cache: ~0.01s</text>
+  <text x="840" y="1290" font-size="12" fill="#666">• Answer cache: ~0.001s</text>
+  
+</svg>

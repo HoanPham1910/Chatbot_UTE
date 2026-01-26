@@ -1,0 +1,165 @@
+<svg viewBox="0 0 1400 900" xmlns="http://www.w3.org/2000/svg">
+  <!-- Title -->
+  <text x="700" y="40" font-size="32" font-weight="bold" text-anchor="middle" fill="#1a1a1a">
+    Kiến trúc RAG (Retrieval-Augmented Generation)
+  </text>
+  <text x="700" y="70" font-size="18" text-anchor="middle" fill="#666">
+    MakerSpace Q&A System
+  </text>
+  
+  <!-- Main container -->
+  <rect x="50" y="100" width="1300" height="750" fill="#fafafa" stroke="#333" stroke-width="2" rx="10"/>
+  
+  <!-- Layer 1: Data Sources -->
+  <rect x="100" y="130" width="1200" height="150" fill="#e8f5e9" stroke="#4caf50" stroke-width="3" rx="8"/>
+  <text x="700" y="160" font-size="20" font-weight="bold" text-anchor="middle" fill="#2e7d32">
+    📚 TẦNG DỮ LIỆU (Data Layer)
+  </text>
+  
+  <rect x="150" y="190" width="280" height="70" fill="#fff" stroke="#4caf50" stroke-width="2" rx="5"/>
+  <text x="290" y="215" font-size="15" font-weight="bold" text-anchor="middle">📄 PDF Documents</text>
+  <text x="290" y="235" font-size="12" text-anchor="middle">MakerSpace Guide.pdf</text>
+  <text x="290" y="250" font-size="11" fill="#666" text-anchor="middle">→ Convert to images</text>
+  
+  <rect x="480" y="190" width="280" height="70" fill="#fff" stroke="#4caf50" stroke-width="2" rx="5"/>
+  <text x="620" y="215" font-size="15" font-weight="bold" text-anchor="middle">🖼️ Page Images</text>
+  <text x="620" y="235" font-size="12" text-anchor="middle">page_1.png ... page_N.png</text>
+  <text x="620" y="250" font-size="11" fill="#666" text-anchor="middle">→ OCR Extract</text>
+  
+  <rect x="810" y="190" width="280" height="70" fill="#fff" stroke="#4caf50" stroke-width="2" rx="5"/>
+  <text x="950" y="215" font-size="15" font-weight="bold" text-anchor="middle">📝 Text Content</text>
+  <text x="950" y="235" font-size="12" text-anchor="middle">Tesseract OCR (Vietnamese)</text>
+  <text x="950" y="250" font-size="11" fill="#666" text-anchor="middle">ocr_cache.json</text>
+  
+  <line x1="430" y1="225" x2="480" y2="225" stroke="#4caf50" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="760" y1="225" x2="810" y2="225" stroke="#4caf50" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Arrow down -->
+  <line x1="700" y1="280" x2="700" y2="320" stroke="#333" stroke-width="3" marker-end="url(#arrow)"/>
+  
+  <!-- Layer 2: Vector Store -->
+  <rect x="100" y="320" width="1200" height="140" fill="#e3f2fd" stroke="#2196f3" stroke-width="3" rx="8"/>
+  <text x="700" y="350" font-size="20" font-weight="bold" text-anchor="middle" fill="#1565c0">
+    🧮 TẦNG EMBEDDING (Vector Store)
+  </text>
+  
+  <rect x="200" y="380" width="380" height="60" fill="#fff" stroke="#2196f3" stroke-width="2" rx="5"/>
+  <text x="390" y="405" font-size="14" font-weight="bold" text-anchor="middle">LitePali Model</text>
+  <text x="390" y="425" font-size="11" text-anchor="middle">Image → 768-dim vector embeddings</text>
+  
+  <rect x="640" y="380" width="380" height="60" fill="#fff" stroke="#2196f3" stroke-width="2" rx="5"/>
+  <text x="830" y="405" font-size="14" font-weight="bold" text-anchor="middle">📊 pdf_index/</text>
+  <text x="830" y="425" font-size="11" text-anchor="middle">Store: [image_path, embedding_vector]</text>
+  
+  <line x1="580" y1="410" x2="640" y2="410" stroke="#2196f3" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Arrow down -->
+  <line x1="700" y1="460" x2="700" y2="500" stroke="#333" stroke-width="3" marker-end="url(#arrow)"/>
+  
+  <!-- Layer 3: Core Logic -->
+  <rect x="100" y="500" width="1200" height="160" fill="#fff3e0" stroke="#ff9800" stroke-width="3" rx="8"/>
+  <text x="700" y="530" font-size="20" font-weight="bold" text-anchor="middle" fill="#e65100">
+    🔍 TẦNG XỬ LÝ (Processing Layer)
+  </text>
+  
+  <!-- Semantic Search -->
+  <rect x="150" y="560" width="320" height="80" fill="#fff" stroke="#ff9800" stroke-width="2" rx="5"/>
+  <text x="310" y="585" font-size="14" font-weight="bold" text-anchor="middle">Semantic Search</text>
+  <text x="310" y="605" font-size="11" text-anchor="middle">1. Query → embedding</text>
+  <text x="310" y="620" font-size="11" text-anchor="middle">2. Cosine similarity</text>
+  <text x="310" y="635" font-size="11" text-anchor="middle">3. Top-K results</text>
+  
+  <!-- Cache System -->
+  <rect x="540" y="560" width="320" height="80" fill="#fff" stroke="#9c27b0" stroke-width="2" rx="5"/>
+  <text x="700" y="585" font-size="14" font-weight="bold" text-anchor="middle">Cache System</text>
+  <text x="700" y="605" font-size="11" text-anchor="middle">OCR Cache (text)</text>
+  <text x="700" y="620" font-size="11" text-anchor="middle">Answer Cache (Q&A)</text>
+  <text x="700" y="635" font-size="11" fill="#9c27b0" text-anchor="middle">→ Speed: 1000x faster</text>
+  
+  <!-- Context Builder -->
+  <rect x="930" y="560" width="320" height="80" fill="#fff" stroke="#ff9800" stroke-width="2" rx="5"/>
+  <text x="1090" y="585" font-size="14" font-weight="bold" text-anchor="middle">Context Builder</text>
+  <text x="1090" y="605" font-size="11" text-anchor="middle">Kết hợp:</text>
+  <text x="1090" y="620" font-size="11" text-anchor="middle">Trang 1, 2, 3 text</text>
+  <text x="1090" y="635" font-size="11" text-anchor="middle">→ Context prompt</text>
+  
+  <!-- Arrow down -->
+  <line x1="700" y1="660" x2="700" y2="700" stroke="#333" stroke-width="3" marker-end="url(#arrow)"/>
+  
+  <!-- Layer 4: LLM -->
+  <rect x="100" y="700" width="1200" height="120" fill="#fce4ec" stroke="#e91e63" stroke-width="3" rx="8"/>
+  <text x="700" y="730" font-size="20" font-weight="bold" text-anchor="middle" fill="#c2185b">
+    🤖 TẦNG AI (LLM Layer)
+  </text>
+  
+  <rect x="250" y="755" width="380" height="50" fill="#e3f2fd" stroke="#2196f3" stroke-width="2" rx="5"/>
+  <text x="440" y="775" font-size="14" font-weight="bold" text-anchor="middle" fill="#2196f3">☁️ Groq API</text>
+  <text x="440" y="793" font-size="11" text-anchor="middle">llama-3.1-8b (0.5s)</text>
+  
+  <text x="700" y="783" font-size="16" font-weight="bold" text-anchor="middle">hoặc</text>
+  
+  <rect x="770" y="755" width="380" height="50" fill="#fff3e0" stroke="#ff9800" stroke-width="2" rx="5"/>
+  <text x="960" y="775" font-size="14" font-weight="bold" text-anchor="middle" fill="#ff9800">🖥️ Ollama Local</text>
+  <text x="960" y="793" font-size="11" text-anchor="middle">llama3.2:1b (1-2s)</text>
+  
+  <!-- User interaction at bottom -->
+  <ellipse cx="200" cy="870" rx="80" ry="35" fill="#4caf50" stroke="#2e7d32" stroke-width="2"/>
+  <text x="200" y="870" font-size="14" font-weight="bold" text-anchor="middle" fill="white">👤 User</text>
+  <text x="200" y="887" font-size="11" text-anchor="middle" fill="white">Question</text>
+  
+  <ellipse cx="1200" cy="870" rx="80" ry="35" fill="#4caf50" stroke="#2e7d32" stroke-width="2"/>
+  <text x="1200" y="870" font-size="14" font-weight="bold" text-anchor="middle" fill="white">✓ Answer</text>
+  <text x="1200" y="887" font-size="11" text-anchor="middle" fill="white">+ TTS</text>
+  
+  <!-- Bi-directional arrows -->
+  <line x1="280" y1="860" x2="620" y2="830" stroke="#4caf50" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="780" y1="830" x2="1120" y2="860" stroke="#4caf50" stroke-width="3" marker-end="url(#arrow)"/>
+  
+  <!-- Info box -->
+  <rect x="50" y="100" width="280" height="180" fill="white" stroke="#ff9800" stroke-width="3" rx="8"/>
+  <text x="190" y="130" font-size="16" font-weight="bold" text-anchor="middle" fill="#ff9800">
+    🔑 KEY CONCEPTS
+  </text>
+  <text x="70" y="160" font-size="13" font-weight="bold" fill="#333">RAG =</text>
+  <text x="70" y="180" font-size="11" fill="#666">Retrieval (Tìm kiếm)</text>
+  <text x="70" y="195" font-size="11" fill="#666">+ Augmented (Tăng cường)</text>
+  <text x="70" y="210" font-size="11" fill="#666">+ Generation (Sinh text)</text>
+  
+  <line x1="70" y1="220" x2="310" y2="220" stroke="#ccc" stroke-width="1"/>
+  
+  <text x="70" y="240" font-size="11" fill="#666">✓ Không cần train lại</text>
+  <text x="70" y="255" font-size="11" fill="#666">✓ Dữ liệu luôn mới</text>
+  <text x="70" y="270" font-size="11" fill="#666">✓ Trích nguồn được</text>
+  
+  <!-- Arrow definitions -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#333"/>
+    </marker>
+  </defs>
+  
+  <!-- Stats box -->
+  <rect x="1070" y="100" width="280" height="200" fill="white" stroke="#2196f3" stroke-width="3" rx="8"/>
+  <text x="1210" y="130" font-size="16" font-weight="bold" text-anchor="middle" fill="#2196f3">
+    📊 PERFORMANCE
+  </text>
+  
+  <text x="1090" y="160" font-size="12" fill="#666">Cache hit rate:</text>
+  <text x="1270" y="160" font-size="12" font-weight="bold" fill="#4caf50" text-anchor="end">~70-80%</text>
+  
+  <text x="1090" y="185" font-size="12" fill="#666">Avg response:</text>
+  <text x="1270" y="185" font-size="12" font-weight="bold" fill="#2196f3" text-anchor="end">0.3s</text>
+  
+  <text x="1090" y="210" font-size="12" fill="#666">Groq free limit:</text>
+  <text x="1270" y="210" font-size="12" font-weight="bold" fill="#ff9800" text-anchor="end">14.4K/day</text>
+  
+  <text x="1090" y="235" font-size="12" fill="#666">Storage:</text>
+  <text x="1270" y="235" font-size="12" font-weight="bold" fill="#9c27b0" text-anchor="end">~50MB</text>
+  
+  <line x1="1090" y1="245" x2="1330" y2="245" stroke="#ccc" stroke-width="1"/>
+  
+  <text x="1090" y="265" font-size="11" fill="#4caf50">✓ Scalable</text>
+  <text x="1090" y="280" font-size="11" fill="#4caf50">✓ Cost-effective</text>
+  <text x="1090" y="295" font-size="11" fill="#4caf50">✓ Maintainable</text>
+  
+</svg>
