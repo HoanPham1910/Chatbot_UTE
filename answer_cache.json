@@ -1,8 +1,8 @@
 {
   "stats": {
-    "hits": 18,
-    "misses": 87,
-    "hit_rate": "17.1%"
+    "hits": 86,
+    "misses": 206,
+    "hit_rate": "29.5%"
   },
   "cache": {
     "e2815a9a61f8b076a8ad6fad155679d3": {
@@ -296,60 +296,60 @@
       "answer": "Để cho bạn Khôi vào MakerSpace, bạn có thể liên hệ với nhân sự quản lý không gian MakerSpace, cụ thể là:\n\n- Thầy Lê Tấn Cường\n- Cô Bùi Thị Thu Ba\n- Thầy Trần Phương Nam\n\nHoặc bạn có thể tham khảo thông tin về cách đăng ký sử dụng thiết bị tại MakerSpace, nhưng thông tin này không được cung cấp trong tài liệu.",
       "context_hash": "9bc6f339"
     },
-    "14a40c6622c2ffe8f0436c72a3115c30": {
-      "question": "nói được không",
-      "answer": "Tôi có thể trả lời các câu hỏi sau:\n\n1. MakerSpace mở cửa vào ngày nào?\n- MakerSpace mở cửa cho sinh viên từ thứ 2 đến thứ 7 từ 7h sáng đến 9h tối.\n\n2. Có được ngủ lại ở MakerSpace không?\n- Không được, nếu bạn vẫn còn việc thì hãy về nhà nghỉ ngơi rồi ngày mai lên làm tiếp.\n\n3. Ở đây có nước uống không?\n- Có, ở MakerSpace có 2 máy lọc nước nằm sát tường, đối diện cửa kính ra vào và 2 máy bán hàng tự động được đặt ở trung tâm.\n\n4. Ai quản lý khu MakerSpace?\n- MakerSpace hiện do thầy Lê Tấn Cường quản lý.\n\n5. Mọi người đến MakerSpace để làm gì?\n- Mọi người đến MakerSpace để học nhóm, trao đổi và làm những dự án cho riêng mình.\n\n6. Có quạt đứng ở MakerSpace không?\n- Có, bạn có",
-      "context_hash": "ff62f771"
+    "d09b5217747c96e88b7b91e169b27dee": {
+      "question": "robot ơi",
+      "answer": "Chào bạn! Tôi đang ở trạng thái IDLE (Chờ kích hoạt). Bạn có muốn kích hoạt tôi bằng từ khóa \"Hello Robot\" hoặc \"Robot ơi\" không?",
+      "context_hash": "bc6a343b"
     },
-    "2a2821963f7d2709132af01f9f895c7c": {
-      "question": "Ea Ý là chị",
-      "answer": "Xin chào! Tôi là trợ lý hỗ trợ thông tin về MakerSpace tại trường HCMUTE.\n\nĐể trả lời câu hỏi của bạn, tôi cần biết câu hỏi cụ thể của bạn là gì. Vui lòng cho tôi biết câu hỏi của bạn.",
-      "context_hash": "0674efd5"
+    "e99edd83ee889120d75b91a88700a039": {
+      "question": "Xin chào",
+      "answer": "Xin chào, tôi là Robot tiếp tân ở MakerSpace, bạn có muốn biết thông tin về MakerSpace không?",
+      "context_hash": "a50a67ea"
     },
-    "b2c9eae464af0257791fc8931b0a142b": {
-      "question": "sinh ở đâu",
-      "answer": "Không tìm thấy thông tin về nơi sinh của thầy Lê Tấn Cường, cô Bùi Thị Thu Ba, thầy Trần Phương Nam trong tài liệu.",
-      "context_hash": "e7cc2fb4"
+    "73b90427ab12452b634b1b0a5f680a7d": {
+      "question": "Hello robot",
+      "answer": "Tôi đã được kích hoạt! Tôi là Robot tiếp tân ở MakerSpace, bạn có muốn biết thông tin về MakerSpace không?",
+      "context_hash": "5959baa8"
     },
-    "7ce4edfaeff3a1640e1d5e0a4b60218a": {
-      "question": "Nhà vệ sinh ở đâu",
-      "answer": "Nhà vệ sinh ở cuối hành lang.",
-      "context_hash": "60e0214d"
+    "082d9add764ecff85461d3463d17f862": {
+      "question": "Tôi muốn như chỉ tới phòng họp",
+      "answer": "Bạn muốn di chuyển đến phòng họp, đúng không? 📍\n\nBạn có muốn tôi di chuyển đến Phòng Họp không? 🤔",
+      "context_hash": "2a046b51"
     },
-    "5035e2cbab72973265f6bd54657323d8": {
-      "question": "Alpha",
-      "answer": "Tôi có thể trả lời các câu hỏi của bạn dựa trên thông tin trong tài liệu. Hãy cho tôi biết câu hỏi của bạn là gì!",
-      "context_hash": "4fc35e91"
+    "05dbca499954ffe872b1ac074fe0f61f": {
+      "question": "Đúng vậy",
+      "answer": "Bạn đã đồng ý di chuyển đến phòng họp! 📍\n\nBây giờ, tôi sẽ bắt đầu di chuyển đến phòng họp. Bạn có thể chờ đợi tại đây nhé! 🤗\n\nTôi đang di chuyển đến phòng họp... 📍",
+      "context_hash": "1678f8b1"
     },
-    "39c97f3af327b63ca8b6d5fde4f9fd9e": {
-      "question": "Mickey do ai quản lý",
-      "answer": "Không tìm thấy thông tin về Mickey trong tài liệu.",
-      "context_hash": "058b8cc9"
+    "60ef84386af3b499e8663a84a159f22b": {
+      "question": "Tôi muốn di chuyển tích phòng họp",
+      "answer": "Để di chuyển đến phòng họp, bạn cần sử dụng lệnh điều hướng hợp lệ. Lệnh điều hướng hợp lệ phải chứa từ khóa kích hoạt \"Hello Robot\" hoặc \"Robot ơi\" và địa điểm \"Phòng họp\".\n\nVí dụ:\n\n\"Hello Robot, di chuyển đến Phòng họp\"\n\nLệnh này chứa từ khóa kích hoạt \"Hello Robot\" và địa điểm \"Phòng họp\", vì vậy Robot sẽ chuyển sang trạng thái NAVIGATION và bắt đầu di chuyển đến phòng họp.\n\nNếu bạn muốn di chuyển đến phòng họp, hãy sử dụng lệnh điều hướng hợp lệ như trên. Robot sẽ hỏi bạn:\n\n\"Bạn có muốn tôi di chuyển đến Phòng họp không?\"\n\nNếu bạn trả lời \"Có\", \"Đúng vậy\", \"Đúng\", Robot sẽ bắt đầu di chuyển đến phòng họp.",
+      "context_hash": "e86593e9"
     },
-    "81ab1da4c0f2503d8dd0ba67117cc116": {
-      "question": "ở makerspace có gì",
-      "answer": "MakerSpace có các khu vực và phòng ban sau:\n\n- Trưng bày đồ án sinh viên\n- Khu Workshop\n- Khu chữa lành\n- Nhà vệ sinh\n- Trạm uống nước\n- Phòng CISATT - Trung tâm Sáng tạo khởi nghiệp và Chuyển giao công nghệ\n- Trung tâm hỗ trợ sinh viên làm nghiên cứu khoa học\n- Trung tâm Robot thông minh\n- Phòng Trung tâm Chuyển giao công nghệ\n- Hệ thống thiết bị tự động hóa\n- Các thiết bị như máy cắt lazer, máy khoan, máy in 3D, ...",
-      "context_hash": "7edf6941"
+    "198ae39359b051eed042a1d2d04fdc9b": {
+      "question": "di chuyển đến phòng họp",
+      "answer": "Để di chuyển đến phòng họp, bạn cần sử dụng lệnh điều hướng hợp lệ. Lệnh điều hướng hợp lệ phải chứa từ khóa kích hoạt \"Hello Robot\" hoặc \"Robot ơi\" và địa điểm \"Phòng họp\".\n\nTuy nhiên, theo danh sách địa điểm hợp lệ, địa điểm \"Phòng họp\" không được liệt kê. Vì vậy, lệnh điều hướng của bạn không hợp lệ.\n\nRobot sẽ hỏi bạn:\n\n\"Bạn có muốn tôi di chuyển đến <địa điểm> không?\"\n\nVì lệnh điều hướng của bạn không hợp lệ, Robot sẽ không thể di chuyển đến bất kỳ địa điểm nào.\n\nNếu bạn muốn di chuyển đến một địa điểm hợp lệ, hãy sử dụng lệnh điều hướng hợp lệ như sau:\n\n\"Hello Robot, di chuyển đến Phòng CISAT\"\n\n\"Hello Robot, di chuyển đến Khu sân chơi\"\n\n\"Hello Robot, di chuyển đến Trung tâm nghiên cứu chuyển giao công nghệ\"\n\n\"Hello Robot, di chuyển đến Phòng Robot\"\n\n\"Hello Robot",
+      "context_hash": "bd0f3de1"
     },
-    "01247bd529234b0096914ba4c3cdd0ac": {
-      "question": "& c:/Users/ThinkPad/Chatbot_ute/.venv/Scripts/python.exe c:/Users/ThinkPad/Chatbot_ute/main.py",
-      "answer": "Tôi sẵn sàng giúp bạn!\n\nBạn có câu hỏi nào về MakerSpace tại trường HCMUTE không?",
-      "context_hash": "54ca9e56"
+    "ee7b2d79659fbe5a234aef2d260cb379": {
+      "question": "hãy di chuyển đến phòng họp",
+      "answer": "Tôi xin lỗi, nhưng lệnh điều hướng của bạn không hợp lệ. Theo danh sách địa điểm hợp lệ, địa điểm \"Phòng họp\" không được liệt kê.\n\nNếu bạn muốn di chuyển đến một địa điểm hợp lệ, hãy sử dụng lệnh điều hướng hợp lệ như sau:\n\n\"Hello Robot, di chuyển đến Phòng CISAT\"\n\n\"Hello Robot, di chuyển đến Khu sân chơi\"\n\n\"Hello Robot, di chuyển đến Trung tâm nghiên cứu chuyển giao công nghệ\"\n\n\"Hello Robot, di chuyển đến Phòng Robot\"\n\nRobot sẽ hỏi bạn:\n\n\"Bạn có muốn tôi di chuyển đến <địa điểm> không?\"\n\nVí dụ:\n\n\"Bạn có muốn tôi di chuyển đến Phòng CISAT không?\"\n\nNếu bạn trả lời \"Có\", \"Đúng vậy\", \"Đúng\", Robot sẽ bắt đầu di chuyển đến Phòng CISAT.",
+      "context_hash": "bd0f3de1"
     },
-    "b2e1fc95c1d4030daf00df6df7f8b08e": {
-      "question": "bạn là",
-      "answer": "Tôi là trợ lý hỗ trợ thông tin về MakerSpace tại trường Đại Học Công Nghệ Kỹ Thuật.",
-      "context_hash": "058b8cc9"
+    "5fadadd427f161dec6497ffa294a2244": {
+      "question": "Hello robot di chuyển đến phòng robot",
+      "answer": "Xin lỗi bạn, mình đang gặp chút vấn đề kỹ thuật. Bạn thử hỏi lại sau nhé! 😅",
+      "context_hash": "2cc0d94a"
     },
-    "0439ae9978925d96295027bff609c6bb": {
-      "question": "bạn tôi có đẹp trai không",
-      "answer": "À, bạn tôi đẹp trai không? Haha, mình không biết được vẻ đẹp của bạn ấy, nhưng mình biết rằng bạn ấy là một người rất thông minh và sáng tạo, đúng không?",
-      "context_hash": "60e0214d"
+    "2ff92812e3b447f47413d550bb2674f0": {
+      "question": "Hello robot di chuyển đến phòng họp",
+      "answer": "❓ \"Hello robot di chuyển đến phòng họp\"\n\n✅ \"Bạn có muốn tôi di chuyển đến Phòng Họp không? 📍\"\n\n(Lưu ý: Câu trả lời chỉ là một câu hỏi, để người dùng xác nhận hành động của Robot)\n\nNếu người dùng trả lời \"Có\", \"Đúng vậy\", \"Đúng\", Robot sẽ chuyển sang NAVIGATION MODE và bắt đầu di chuyển đến Phòng Họp.",
+      "context_hash": "2a046b51"
     },
-    "507e14ef3f4a8845a8b9d01dc29a671b": {
-      "question": "bài nghe kể một câu chuyện được không",
-      "answer": "À, bạn muốn biết có thể nghe được một câu chuyện ở MakerSpace được không? \n\nXin lỗi, mình chưa có thông tin về việc có thể nghe được một câu chuyện ở MakerSpace. Nhưng mình có thể giúp bạn tìm hiểu thêm về các hoạt động và dự án tại MakerSpace nếu bạn muốn!",
-      "context_hash": "02baa8c7"
+    "4e19d228d69711b77fc26cae1d9525ac": {
+      "question": "Tôi muốn di chuyển đến phòng họ",
+      "answer": "❌ Không có thông tin về \"phòng họ\" trong danh sách địa điểm hợp lệ.\n\nMình chưa có thông tin về \"phòng họ\" này. Bạn có thể liên hệ:\n📞 Thầy Lê Tấn Cường - Zalo: 0909744100\nhoặc ghé phòng CISAT để được tư vấn trực tiếp nhé!",
+      "context_hash": "7399b457"
     }
   }
 }

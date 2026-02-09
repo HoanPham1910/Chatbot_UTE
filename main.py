@@ -1,7 +1,7 @@
 import time
 from pathlib import Path
 from module.config import *
-from module.cache import OCRCache, AnswerCache
+from module.cache import OCRCache, AnswerCache   
 from module.search import PDFSearch
 from module.llm import OllamaLLM, GroqLLM
 from module.tts import GoogleTTS
@@ -9,7 +9,6 @@ from module.voice_input import VoiceInput
 
 class MakerSpaceQA:
     def __init__(self, enable_tts=False, enable_voice=False):
-        # Load components
         self.search = PDFSearch(INDEX_DIR)
         self.ocr_cache = OCRCache(OCR_CACHE_FILE)
         self.answer_cache = AnswerCache(ANSWER_CACHE_FILE)
@@ -17,7 +16,7 @@ class MakerSpaceQA:
         if not Path(OCR_CACHE_FILE).exists():
             self.ocr_cache.precache_all(self.search.image_embeddings)
         
-        # Initialize LLM
+    
         if USE_GROQ:
             self.llm = GroqLLM(api_key=GROQ_API_KEY, model=GROQ_MODEL)
             if not self.llm.check():
@@ -89,7 +88,7 @@ def main():
         if not q:
             continue
         
-        # Handle exit command
+        # Handle exit command 
         if q.lower() in ['exit', 'quit', 'q', 'thoát']:
             break
         
