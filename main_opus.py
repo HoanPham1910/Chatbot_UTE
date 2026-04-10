@@ -6,12 +6,12 @@ from flask import Flask, request, jsonify, Response
 from Model_expander.intent_classifier import classify_intent, parse_light_command
 from Model_expander.llm import GroqLLM
 from Service.calendar_service import get_events, format_events, get_upcoming_reminders, get_today_info
-from Model_expander.TTS_chunk import text_to_wav, start_render_async, get_chunk, store_status, TTS_OUTPUT_WAV
+from Model_expander.TTS_chunk_opus import text_to_opus, start_render_async, get_chunk, store_status, TTS_OUTPUT_OPUS
 from config.config import REMINDER_CHECK_INTERVAL, HTTP_HOST, HTTP_PORT
 import colorama
 
 
-colorama.init(wrap=False) 
+colorama.init(wrap=False)
 app = Flask(__name__)
 app.json.ensure_ascii = False
 
@@ -62,7 +62,7 @@ def _detect_calendar_intent(text: str) -> dict:
         "date_info": date_info,
         "is_next_week": is_next_week,
     }
-    
+
 
 def _build_calendar_context(intent: dict) -> str:
     events = get_events(
@@ -177,21 +177,21 @@ def ask():
 def get_chunk_by_index(index: int):
     """
     Client fetch tuần tự: /audio/chunk/1, /audio/chunk/2, ..., /audio/chunk/N
-    Trả về WAV bytes của chunk đó, sau đó xóa khỏi RAM.
+    Trả về Opus bytes của chunk đó, sau đó xóa khỏi RAM.
     204 nếu timeout (chunk bị lỗi render).
     """
-    wav = get_chunk(index, timeout=30.0)
+    opus = get_chunk(index, timeout=30.0)
 
-    if wav is None:
+    if opus is None:
         return Response(status=204)
 
     from Model_expander.TTS_chunk import _chunk_total
     return Response(
-        wav,
+        opus,
         status=200,
-        mimetype="audio/wav",
+        mimetype="audio/ogg; codecs=opus",
         headers={
-            "Content-Length":  str(len(wav)),
+            "Content-Length":  str(len(opus)),
             "Cache-Control":   "no-cache, no-store",
             "X-Chunk-Index":   str(index),
             "X-Chunk-Total":   str(_chunk_total),
@@ -204,22 +204,23 @@ def chunk_status():
     return jsonify(store_status())
 
 
-@app.get("/audio/wav")
-def get_audio_wav():
-    if not os.path.exists(TTS_OUTPUT_WAV):
-        return jsonify({"error": "Chưa có audio WAV"}), 404
+@app.get("/audio/opus")
+def get_audio_opus():
+    """Trả về toàn bộ file Opus một lần (dùng thay thế cho /audio/wav cũ)."""
+    if not os.path.exists(TTS_OUTPUT_OPUS):
+        return jsonify({"error": "Chưa có audio Opus"}), 404
 
-    with open(TTS_OUTPUT_WAV, "rb") as f:
+    with open(TTS_OUTPUT_OPUS, "rb") as f:
         data = f.read()
 
     try:
-        os.remove(TTS_OUTPUT_WAV)
+        os.remove(TTS_OUTPUT_OPUS)
     except Exception:
         pass
 
     return Response(
         data,
-        mimetype="audio/wav",
+        mimetype="audio/ogg; codecs=opus",
         headers={"Content-Length": str(len(data))}
     )
 
@@ -257,16 +258,14 @@ def reminder_loop():
 
         time.sleep(REMINDER_CHECK_INTERVAL)
 
-
 def _preload_tts():
     try:
-        from Model_expander.TTS_chunk import _get_tts
+        from Model_expander.TTS_chunk_opus import _check_deps
         print("[APP] pre-loading TTS model...")
-        _get_tts()
+        _check_deps()
         print("[APP] TTS model ready ✅")
     except Exception as e:
         print(f"[APP] TTS preload error: {e}")
-
 
 if __name__ == "__main__":
     threading.Thread(target=reminder_loop, daemon=True).start()

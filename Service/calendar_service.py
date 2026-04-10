@@ -10,7 +10,7 @@ from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 
-from config import (
+from config.config import (
     GOOGLE_CREDENTIALS_FILE, GOOGLE_TOKEN_FILE,
     GOOGLE_CALENDAR_ID, REMINDER_MINUTES_BEFORE,
 )
@@ -45,7 +45,6 @@ def _now() -> datetime.datetime:
 
 
 def get_today_info() -> str:
-    """Trả về thông tin ngày hôm nay dạng text."""
     now = _now()
     weekday = WEEKDAY_VI[now.weekday()]
     return f"Hôm nay là {weekday}, ngày {now.strftime('%d/%m/%Y')}."
